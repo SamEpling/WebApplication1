@@ -1,13 +1,15 @@
+using Microsoft.AspNetCore.Mvc;
+
 namespace WebApplication1
 {
-    public class WeatherForecast
+    [Route("api/[controller]")]
+    [ApiController]
+    public class NameController : ControllerBase
     {
-        public DateTime Date { get; set; }
-
-        public int TemperatureC { get; set; }
-
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-
-        public string? Summary { get; set; }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(new { Name = "Sam Epling" });
+        }
     }
 }
